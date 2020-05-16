@@ -41,18 +41,4 @@ public class PDFWrapper {
     public String getFileName(int pagenum) {
         return fileName + pagenum;
     }
-
-    /*
-    try (final PDDocument document = PDDocument.load(new File("/home/user/Downloads/010.pdf"))) {
-            PDFRenderer pdfRenderer = new PDFRenderer(document);
-            for (int page = 0; page < document.getNumberOfPages(); ++page) {
-                BufferedImage bim = pdfRenderer.renderImageWithDPI(page, 300, ImageType.RGB);
-                String fileName = OUTPUT_DIR + "image-" + page + ".png";
-                ImageIOUtil.writeImage(bim, fileName, 300);
-            }
-            document.close();
-        } catch (IOException e) {
-            System.err.println("Exception while trying to create pdf document - " + e);
-        }
-     */
 }
