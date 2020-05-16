@@ -4,7 +4,7 @@
 
 ### Linux/Mac OS
 1. Make sure Java is installed
-2. Download the .jar file at: [placeholder]
+2. Download the .jar file at: https://github.com/hpnrep6/ImagePDFConverter/raw/master/JPDFImageConverter/out/artifacts/JPDFImageConverter_jar/JPDFImageConverter.jar
 3. Navigate to the directory the .jar file is saved in terminal and run the .jar file with ' java -jar JPDFImageConverter.jar '.
 
 ## How to use
