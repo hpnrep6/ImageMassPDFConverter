@@ -28,12 +28,17 @@ public class Converter {
         BufferedImage[] imageList = new BufferedImage[directoryFileCount];
         String[] fileNames = new String[directoryFileCount];
         for(int i = 0; i < directoryFileCount; i++) {
-            if(directoryFiles[i].getName().substring(directoryFiles[i].getName().indexOf(".")).equals(".pdf")) {
-                try {
-                    PDFWrapper img = new PDFWrapper(directoryFiles[i]);
-                    imageList[i] = img.toImage(0, dpi);
-                    fileNames[i] =  directoryFiles[i].getName().substring(0, directoryFiles[i].getName().indexOf("."));
-                } catch (Exception e) {
+            if(directoryFiles[i] != null) {
+                int indexOfPeriod = directoryFiles[i].getName().indexOf(".");
+                if (indexOfPeriod != -1) {
+                    if (directoryFiles[i].getName().substring(indexOfPeriod).toLowerCase().equals(".pdf")) {
+                        try {
+                            PDFWrapper img = new PDFWrapper(directoryFiles[i]);
+                            imageList[i] = img.toImage(0, dpi);
+                            fileNames[i] = directoryFiles[i].getName().substring(0, directoryFiles[i].getName().indexOf("."));
+                        } catch (Exception e) {
+                        }
+                    }
                 }
             }
         }
@@ -58,13 +63,17 @@ public class Converter {
         PDDocument[] pdfList = new PDDocument[directoryFileCount];
         String[] fileNames = new String[directoryFileCount];
         for(int i = 0; i < directoryFileCount; i++) {
-            String fileType = directoryFiles[i].getName().substring(directoryFiles[i].getName().indexOf("."));
-            if(acceptedImageFiles.contains(fileType.toLowerCase())) {
-                try {
-                    ImageWrapper pdf = new ImageWrapper(directoryFiles[i]);
-                    pdfList[i] = pdf.toPDF(0);
-                    fileNames[i] =  directoryFiles[i].getName().substring(0, directoryFiles[i].getName().indexOf("."));
-                } catch (Exception e) {
+            if(directoryFiles[i] != null) {
+                int indexOfPeriod = directoryFiles[i].getName().indexOf(".");
+                if (indexOfPeriod != -1) {
+                    if (acceptedImageFiles.contains(directoryFiles[i].getName().substring(indexOfPeriod).toLowerCase())) {
+                        try {
+                            ImageWrapper pdf = new ImageWrapper(directoryFiles[i]);
+                            pdfList[i] = pdf.toPDF(0);
+                            fileNames[i] = directoryFiles[i].getName().substring(0, directoryFiles[i].getName().indexOf("."));
+                        } catch (Exception e) {
+                        }
+                    }
                 }
             }
         }
@@ -85,6 +94,10 @@ public class Converter {
         File[] listFiles = new File[stringFiles.length];
         for(int i = 0; i < listFiles.length; i++) {
             listFiles[i] = new File(f.toString() + File.separator + stringFiles[i]);
+            // sets to null if it is a directory
+            if(listFiles[i].isDirectory()) {
+                listFiles[i] = null;
+            }
         }
         return listFiles;
     }
