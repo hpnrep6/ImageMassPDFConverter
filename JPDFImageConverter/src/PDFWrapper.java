@@ -25,12 +25,17 @@ public class PDFWrapper {
     }
 
     public BufferedImage toImage(int page, int dpi) {
+        BufferedImage image = null;
         try {
             PDFRenderer pdfRenderer = new PDFRenderer(pdfDoc);
-            BufferedImage image = pdfRenderer.renderImageWithDPI(page, dpi);
-            return image;
+            image = pdfRenderer.renderImageWithDPI(page, dpi);
         } catch (Exception e) {
-            return null;
+            image = null;
+        } finally {
+            try {
+                pdfDoc.close();
+            } catch (IOException e) {}
+            return image;
         }
     }
 
