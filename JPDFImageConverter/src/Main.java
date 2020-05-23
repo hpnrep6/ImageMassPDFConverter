@@ -6,10 +6,8 @@ import java.io.File;
 import java.io.IOException;
 
 public class Main {
-    private static final String OUTPUT_DIR = "/home/user/Downloads/";
 
     public static void main(String[] args) throws Exception {
-        //Converter.ConvertPDFToImage(new File(OUTPUT_DIR), 300);
         new ConverterGUI();
     }
 
