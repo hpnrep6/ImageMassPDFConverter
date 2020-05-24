@@ -14,5 +14,3 @@
 
 ## Description
 This program can convert all of the pdf files in a directory to .png files, or convert all image files (.png, .jpg, .bmp, .gif) in a directory to pdf files.
-
-There is currently a bug that prevents this application from running correctly if there is another directory inside the selected directories.
