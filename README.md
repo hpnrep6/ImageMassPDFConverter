@@ -1,6 +1,6 @@
 # ImagePDFConverter
 
-# Libraries Used
+## Libraries Used
 
 - [Apache PDFBox](https://pdfbox.apache.org/)
 
