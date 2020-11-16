@@ -2,7 +2,7 @@
 
 # Libraries Used
 
-- [Apache PDFBox][https://pdfbox.apache.org/]
+- [Apache PDFBox](https://pdfbox.apache.org/)
 
 ## How to Run
 
