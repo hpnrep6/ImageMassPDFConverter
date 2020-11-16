@@ -1,5 +1,9 @@
 # ImagePDFConverter
 
+# Libraries Used
+
+- [Apache PDFBox][https://pdfbox.apache.org/]
+
 ## How to Run
 
 ### Linux/Mac OS
